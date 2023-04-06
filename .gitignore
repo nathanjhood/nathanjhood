@@ -8,6 +8,8 @@ Templates
 Videos
 
 build
+# doc/StoneyDSP
+
 
 bin
 lib
@@ -29,7 +31,7 @@ man
 
 # user dirs
 .cache
-.config
+# .config
 .local
 
 
