@@ -1,0 +1,42 @@
+Desktop
+# Development
+Downloads
+Music
+Pictures
+Public
+Templates
+Videos
+
+build
+
+bin
+lib
+info
+man
+
+# Locally installed dirs
+.cmake-js
+.dotnet
+.nvm
+.keychain
+.npm
+.pki
+.yarn
+.vcpkg
+.ssh
+.vscode-server
+
+
+# user dirs
+.cache
+.config
+.local
+
+
+.motd_shown
+.pam_environment
+.sudo_as_admin_successful
+.wget-hsts
+.yarnrc
+
+/.nvm/*
