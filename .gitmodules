@@ -1,3 +1,6 @@
 [submodule "Development/StoneyDSP/CMakeProject1"]
 	path = Development/StoneyDSP/CMakeProject1
 	url = git@github.com:StoneyDSP/CMakeProject1.git
+[submodule "/home/stoneydsp/vcpkg"]
+	path = /home/stoneydsp/vcpkg
+	url = ../../microsoft/vcpkg.git
