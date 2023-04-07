@@ -31,10 +31,15 @@ export VCPKG_BINARY_SOURCES="clear;nuget,GitHub,readwrite"
 export VCPKG_USE_NUGET_CACHE=true
 
 # https://learn.microsoft.com/en-us/vcpkg/users/binarycaching
-if [ -z "${VCPKG_DEFAULT_BINARY_CACHE}"]; then
+if [ -z "${VCPKG_DEFAULT_BINARY_CACHE}" ]; then
   if [ -d "${XDG_CACHE_HOME}" ]; then
     export VCPKG_DEFAULT_BINARY_CACHE="${XDG_CACHE_HOME}/vcpkg/archives"
   else
     export VCPKG_DEFAULT_BINARY_CACHE="${HOME}/.cache/vcpkg/archives"
   fi
 fi
+
+export CXXFLAGS=-I${VCPKG_ROOT}/installed/x64-linux/include:${CXXFLAGS}
+export CFLAGS=-I${VCPKG_ROOT}/installed/x64-linux/include:${CFLAGS}
+export LDFLAGS=-L${VCPKG_ROOT}/installed/x64-linux/lib:${LDFLAGS}
+export PKG_CONFIG_PATH=${VCPKG_ROOT}/installed/x64-linux/lib/pkgconfig:$PKG_CONFIG_PATH

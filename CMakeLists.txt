@@ -18,13 +18,19 @@ if (CMAKE_SIZEOF_VOID_P EQUAL 8)
 else ()
   set(USE_X64 FALSE)
 endif ()
+if (${VCPKG_ROOT})
+  set(CMAKE_TOOLCHAIN_FILE "${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
+endif ()
+
+message("\n")
+
 set(CMAKE_INSTALL_MODE SYMLINK)
 set(CMAKE_INSTALL_MESSAGE ALWAYS)
+message(STATUS "\n")
+message(STATUS "Initiating CMake v${CMAKE_VERSION}\n")
+message(STATUS "\n")
 
 project("StoneyDSP")
-
-message(STATUS "Detected ${PROJECT_NAME} version: v${${PROJECT_NAME}_VERSION_MAJOR}.${${PROJECT_NAME}_VERSION_MINOR}.${${PROJECT_NAME}_VERSION_PATCH}.${${PROJECT_NAME}_VERSION_TWEAK}")
-
 # Parse the project name into vars
 string(TOUPPER ${PROJECT_NAME} PROJECT_NAME_UPPER)
 string(TOLOWER ${PROJECT_NAME} PROJECT_NAME_LOWER)
