@@ -68,3 +68,6 @@ echo "$0; # ...$USER loaded $HOME/.bashrc"
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+source "/home/stoneydsp/vcpkg/scripts/vcpkg_completion.bash"
+source "/.vcpkgrc"
