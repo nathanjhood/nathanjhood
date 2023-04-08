@@ -24,7 +24,6 @@ man
 .npm
 .pki
 .yarn
-#.vcpkg
 .ssh
 .vscode-server
 
