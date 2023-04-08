@@ -1,3 +1,3 @@
-[submodule "/home/stoneydsp/vcpkg"]
-	path = /home/stoneydsp/vcpkg
+[submodule "/home/stoneydsp/.vcpkg"]
+	path = /home/stoneydsp/.vcpkg
 	url = ../../microsoft/vcpkg.git

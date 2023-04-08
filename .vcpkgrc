@@ -10,7 +10,7 @@
 # within a valid root and the command line switch --vcpkg-root is unused.
 # https://learn.microsoft.com/en-us/vcpkg/users/config-environment#vcpkg_root
 if [ -z "${VCPKG_ROOT}" ]; then
-  export VCPKG_ROOT="${HOME}/vcpkg"
+  export VCPKG_ROOT="${HOME}/.vcpkg"
 fi
 
 # This environment variable can be set to an existing directory to use for
@@ -39,7 +39,10 @@ if [ -z "${VCPKG_DEFAULT_BINARY_CACHE}" ]; then
   fi
 fi
 
-export CXXFLAGS=-I${VCPKG_ROOT}/installed/x64-linux/include:${CXXFLAGS}
-export CFLAGS=-I${VCPKG_ROOT}/installed/x64-linux/include:${CFLAGS}
-export LDFLAGS=-L${VCPKG_ROOT}/installed/x64-linux/lib:${LDFLAGS}
-export PKG_CONFIG_PATH=${VCPKG_ROOT}/installed/x64-linux/lib/pkgconfig:$PKG_CONFIG_PATH
+export CXXFLAGS=-I"${VCPKG_ROOT}/installed/x64-linux/include:${CXXFLAGS}"
+export CFLAGS=-I"${VCPKG_ROOT}/installed/x64-linux/include:${CFLAGS}"
+export LDFLAGS=-L"${VCPKG_ROOT}/installed/x64-linux/lib:${LDFLAGS}"
+export PKG_CONFIG_PATH="${VCPKG_ROOT}/installed/x64-linux/lib/pkgconfig:$PKG_CONFIG_PATH"
+export CMAKE_TOOLCHAIN_FILE="${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
+
+alias nuget="mono `./vcpkg/vcpkg fetch nuget | tail -n 1`"
