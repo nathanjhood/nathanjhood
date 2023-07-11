@@ -1,4 +1,4 @@
-### <p align="center">Hi! I'm Nathan (aka StoneyDSP). I'm also musician making Audio software plugins using a variety of languages and workflows.
+### <p align="center">Hi! I'm Nathan (aka StoneyDSP). I am a software developer with a strong interest in system-level programming. I'm also musician making Audio software plugins using a variety of languages and workflows, and have some background experience in web development.
 </p>
 
 <p align="center">In my personal work, I have developed an (un-)healthy interest in the latest in C/C++, HTML5, CSS3, ES6 and NodeJs-based development, utilizing a range of platforms (Windows 10/11, Ubuntu Linux, WSL, some MacOs), various tools and SDK's such as Typescript, Vue3 (sometimes nuxt), JUCE, iPlug2, and custom scripting in pursuit of clean, robust, and largely self-contained (or modular) future-proofed, multi-platform, multi-architecture API's that do small and useful things - often, purely just for my own achedemic purposes.
