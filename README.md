@@ -5,7 +5,7 @@
 | [![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=StoneyDSP)](https://github.com/anuraghazra/github-readme-stats) |
 | I am a software developer with a strong interest in system-level programming. |
 | |
-| I'm also musician making Audio software plugins using a variety of languages and workflows, and have some background experience in web development. |
+| I am also a musician making Audio software plugins using a variety of languages and workflows, and have some background experience in web development. |
 | |
 | [![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api/top-langs/?username=StoneyDSP)](https://github.com/anuraghazra/github-readme-stats) |
 | |
