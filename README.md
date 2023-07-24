@@ -3,6 +3,8 @@
 
 <p align="center">I am a software developer with a strong interest in system-level programming. I'm also musician making Audio software plugins using a variety of languages and workflows, and have some background experience in web development.</p>
 
+<p align="center"><img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=StoneyDSP&layout=compact&theme=tokyonight&langs_count=8" /></p>
+
 <p align="center">In my personal work, I have developed an (un-)healthy interest in automating build systems for system-agnostic interoperabilities and cross-compiling routines, with an eye for driving continuous integration/deployment pipelines in modern software development and production workflows. 
 </p>
 
