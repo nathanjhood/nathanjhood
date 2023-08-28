@@ -12,7 +12,7 @@
 	},
 	"readme": "https://github.com/StoneyDSP/StoneyDSP/README.md",
 	"scripts": {
-		"serve": "npx serve doc/html/index.html",
+		"serve": "npx serve",
 		"typescript:compile": "npx tsc"
 	},
 	"devDependencies": {
