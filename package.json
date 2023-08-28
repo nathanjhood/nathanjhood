@@ -1,0 +1,21 @@
+{
+	"name": "stoneydsp",
+	"version": "1.0.0-init",
+	"author": {
+		"email": "nathanjhood@googlemail.com",
+		"name": "Nathan J. Hood",
+		"url": "https://github.com/StoneyDSP/StoneyDSP.git"
+	},
+	"repository": {
+		"url": "https://github.com/StoneyDSP/StoneyDSP.git",
+		"type": "git"
+	},
+	"readme": "https://github.com/StoneyDSP/StoneyDSP/README.md",
+	"scripts": {
+		"serve": "npx serve doc/html/index.html",
+		"typescript:compile": "npx tsc"
+	},
+	"devDependencies": {
+		"typescript": "^5.2.2"
+	}
+}

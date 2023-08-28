@@ -1,228 +1,275 @@
-#!/usr/bin/env cmake
+cmake_minimum_required (VERSION 3.7...3.27 FATAL_ERROR)
 
-# CMake requirements.
-cmake_minimum_required(VERSION 3.9...3.26.2)
-# Cmake-js requirements
-cmake_policy(SET CMP0091 NEW)
-cmake_policy(SET CMP0042 NEW)
-# Fallback for using newer policies on CMake < 3.12.
-if(${CMAKE_VERSION} VERSION_LESS 3.12)
-  cmake_policy(VERSION ${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION})
-endif()
-set(CMAKE_INCLUDE_CURRENT_DIR OFF)
-# Single-threaded build-runs only for compatible behaviour
-set(CMAKE_BUILD_PARALLEL_LEVEL 1)
-# Set the host architecture to build with
-if (CMAKE_SIZEOF_VOID_P EQUAL 8)
-  set(USE_X64 TRUE)
+set (CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/share/cmake/Modules")
+
+if (NOT DEFINED StoneyDSP_MASTER_PROJECT)
+	set (StoneyDSP_MASTER_PROJECT OFF)
+	if (CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
+		set (StoneyDSP_MASTER_PROJECT ON)
+		message (STATUS "CMake version: ${CMAKE_VERSION}")
+	endif ()
+endif ()
+
+#[===[
+Joins arguments and places them in ${result}.
+]===]
+function (join result)
+	set (__result "")
+	foreach (arg ${ARGN})
+		set (__result "${__result}${arg}")
+	endforeach ()
+	set (result "${__result}" PARENT_SCOPE)
+endfunction ()
+
+#[===[
+Adds a library compiled with C++20 module support.
+'enabled' is a CMake variable that specifies if modules are enabled.
+If modules are disabled, 'add_module_library' falls back to creating a
+non-modular library.
+
+Usage:
+
+add_module_library(<name> [sources...] FALLBACK [sources...] [IF enabled])
+]===]
+function (add_module_library name)
+	cmake_parse_arguments(AML "" "IF" "FALLBACK" ${ARGN})
+	set (sources ${AML_UNPARSED_ARGUMENTS})
+
+	add_library (${name})
+	set_target_properties (${name} PROPERTIES LINKER_LANGUAGE CXX)
+
+	if (NOT ${${AML_IF}})
+		# Create a non-modular library
+		target_sources (${name} PRIVATE ${AML_FALLBACK})
+		return ()
+	endif ()
+
+	# Modules require C++20
+	target_compile_features (${name} PUBLIC cxx_std_20)
+	if (CMAKE_COMPILER_IS_GNUCXX)
+		target_compile_options (${name} PUBLIC -fmodules-ts)
+	endif ()
+
+	# 'std' is affected by CMake options, and may be higher than C++20.
+	get_target_property (std ${name} CXX_STANDARD)
+
+	if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+		set (pcms)
+		foreach (src ${sources})
+			get_filename_component (pcm ${src} NAME_WE)
+			set (pcm ${pcm}.pcm)
+
+			# propagate '-fmodule-file=*.pcm' to targets that link with this
+			# library.
+			target_compile_options (${name}
+				PUBLIC
+					-fmodule-file=${CMAKE_BINARY_DIR}/${pcm}
+			)
+
+			# Use an absolute path to prevent 'target_link_libraries' prepending
+			# '-l' to it.
+			set (pcms ${pcms} ${CMAKE_CURRENT_BINARY_DIR}/${pcm})
+
+			add_custom_command(
+				OUTPUT ${pcm}
+				COMMAND ${CMAKE_CXX_COMPILER}
+					-std=c++${std} -x c++module --precompile -c
+					-o ${pcm} ${CMAKE_CURRENT_SOURCE_DIR}/${src}
+					"-I$<JOIN:$<TARGET_PROPERTY:${name},INCLUDE_DIRECTORIES>,;-I>"
+					# Required by the '-I' expression above:
+					COMMAND_EXPAND_LISTS
+					DEPENDS ${src}
+			)
+		endforeach () # src ${sources}
+
+		set(sources)
+		foreach (pcm ${pcms})
+			get_filename_component (pcm_we ${pcm} NAME_WE)
+			set (obj ${pcm_we}.o)
+			# Use an absolute path to prevent 'target_link_libraries' prepending
+			# '-l' to it.
+			set (sources ${sources} ${pcm} ${CMAKE_CURRENT_BINARY_DIR}/${obj})
+			add_custom_command (
+				OUTPUT ${obj}
+				COMMAND ${CMAKE_CXX_COMPILER} $<TARGET_PROPERTY:${name},COMPILE_OPTIONS>
+				-c -o ${obj} ${pcm}
+				DEPENDS ${pcm}
+			)
+		endforeach ()
+	endif () # CMAKE_CXX_COMPILER_ID MATCHES "Clang"
+	target_sources (${name} PRIVATE ${sources})
+endfunction ()
+
+project (StoneyDSP)
+
+include (GNUInstallDirs)
+include (CMakePackageConfigHelpers)
+
+set (PROJECT_VERSION_MAJOR 1)
+set (PROJECT_VERSION_MINOR 0)
+set (PROJECT_VERSION_PATCH 0)
+
+include (GetSourceInfo)
+get_source_info ()
+set (PROJECT_VERSION_TWEAK "${git_revision}")
+# set(PROJECT_VERSION_TWEAK "x")
+
+set (PROJECT_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}-${PROJECT_VERSION_TWEAK}" CACHE STRING "Value given to the ``VERSION`` option of the most recent call to the ``project()`` command, if any." FORCE)
+set (PROJECT_DESCRIPTION "A quick one-and-done Win32 API project implementing a COM blank application window for Windows platforms in C++." CACHE STRING "Short project description given to the project command." FORCE)
+set (PROJECT_HOMEPAGE_URL "https://github.com/StoneyDSP/CxxWin.git" CACHE STRING "The homepage URL of the project." FORCE)
+
+option (OPTION_SHARED_LIBS "Global flag to cause ``add_library()`` to create shared libraries if on." ON)
+
+if (OPTION_SHARED_LIBS)
+	set (BUILD_SHARED_LIBS ON CACHE BOOL "Global flag to cause ``add_library()`` to create shared libraries if on." FORCE)
 else ()
-  set(USE_X64 FALSE)
-endif ()
-if (${VCPKG_ROOT})
-  set(CMAKE_TOOLCHAIN_FILE "${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
+	set (BUILD_SHARED_LIBS OFF CACHE BOOL "Global flag to cause ``add_library()`` to create shared libraries if on." FORCE)
 endif ()
 
-message("\n")
+set(StoneyDSP_REQUIRED_DEFS)
+list(APPEND StoneyDSP_REQUIRED_DEFS
+	UNICODE
+	_UNICODE
+)
 
-set(CMAKE_INSTALL_MODE SYMLINK)
-set(CMAKE_INSTALL_MESSAGE ALWAYS)
-message(STATUS "\n")
-message(STATUS "Initiating CMake v${CMAKE_VERSION}\n")
-message(STATUS "\n")
-
-project("StoneyDSP")
-# Parse the project name into vars
-string(TOUPPER ${PROJECT_NAME} PROJECT_NAME_UPPER)
-string(TOLOWER ${PROJECT_NAME} PROJECT_NAME_LOWER)
-message(STATUS "Detected ${PROJECT_NAME} version: v${${PROJECT_NAME}_VERSION_MAJOR}.${${PROJECT_NAME}_VERSION_MINOR}.${${PROJECT_NAME}_VERSION_PATCH}.${${PROJECT_NAME}_VERSION_TWEAK}")
-
-# Determine if built as a subproject (using add_subdirectory), or if it is the master project.
-if (NOT DEFINED ${PROJECT_NAME_UPPER}_MASTER_PROJECT)
-  set(${PROJECT_NAME_UPPER}_MASTER_PROJECT OFF)
-  if (CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
-    # ... this is a top-level project, then;
-    set(PROJECT_IS_TOP_LEVEL TRUE)
-    set(${PROJECT_NAME_UPPER}_MASTER_PROJECT ON)
-    set(MASTER_PROJECT_NAME ${PROJECT_NAME} CACHE STRING "Name of master project")
-    set(MASTER_PROJECT_NAME_UPPER ${PROJECT_NAME_UPPER} CACHE STRING "Name of master project (uppercase)")
-    set(MASTER_PROJECT_NAME_LOWER ${PROJECT_NAME_LOWER} CACHE STRING "Name of master project (lowercase)")
-    message(STATUS "${PROJECT_NAME} is a top-level CMake project\n")
-  else ()
-    # ... this is not a top-level project, so;
-    set(PROJECT_IS_TOP_LEVEL FALSE)
-    message(STATUS "${PROJECT_NAME} is a sub-project of ${CMAKE_PROJECT_NAME}\n")
-  endif ()
-endif ()
-
-# Ensure a valid build type is set
-if (NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
-  if (${PROJECT_NAME_UPPER}_MASTER_PROJECT)
-    set(DEFAULT_BUILD_TYPE Debug)
-  else ()
-    message(WARNING "Default build type is not set (CMAKE_BUILD_TYPE)")
-  endif ()
-  message(STATUS "Setting build type to '${DEFAULT_BUILD_TYPE}' as none was specified.")
-  set(CMAKE_BUILD_TYPE "${DEFAULT_BUILD_TYPE}" CACHE STRING "Choose the type of build." FORCE)
-  set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "Debug" "Release" "MinSizeRel" "RelWithDebInfo")
-endif ()
-
-if (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
-  set(${CMAKE_INSTALL_DEBUG_LIBRARIES} TRUE)
-endif ()
-include(InstallRequiredSystemLibraries)
-
-
-# Print the flags for the user
-if (DEFINED CMAKE_BUILD_TYPE)
-  message(STATUS "Generated CMake build type: ${CMAKE_BUILD_TYPE}")
-else ()
-  message(STATUS "Generated CMake config types: ${CMAKE_CONFIGURATION_TYPES}")
-endif ()
-
-
-
-if (${PROJECT_NAME}_MASTER_PROJECT AND NOT DEFINED CMAKE_CXX_VISIBILITY_PRESET)
-  set(CMAKE_CXX_VISIBILITY_PRESET hidden CACHE STRING "Preset for the export of private symbols (C++)")
-  set_property(CACHE CMAKE_CXX_VISIBILITY_PRESET PROPERTY STRINGS hidden default)
-endif ()
-if (${PROJECT_NAME}_MASTER_PROJECT AND NOT DEFINED CMAKE_C_VISIBILITY_PRESET)
-  set(CMAKE_C_VISIBILITY_PRESET hidden CACHE STRING "Preset for the export of private symbols (C)")
-  set_property(CACHE CMAKE_C_VISIBILITY_PRESET PROPERTY STRINGS hidden default)
-endif ()
-if (${PROJECT_NAME}_MASTER_PROJECT AND NOT DEFINED CMAKE_VISIBILITY_INLINES_HIDDEN)
-  set(CMAKE_VISIBILITY_INLINES_HIDDEN ON CACHE BOOL "Whether to add a compile flag to hide symbols of inline functions")
-endif ()
-
-
-
-
-# Generate CMAKE_INSTALL_<DIR> etc...
-if (NOT CMAKE_INSTALL_INCLUDEDIR)
-  set(CMAKE_INSTALL_INCLUDEDIR include CACHE PATH "C/C++ header files (include)")
-endif ()
-if (NOT CMAKE_INSTALL_BINDIR)
-  set(CMAKE_INSTALL_BINDIR bin CACHE PATH "User executables (bin)")
-endif ()
-if (NOT CMAKE_INSTALL_SBINDIR)
-  set(CMAKE_INSTALL_SBINDIR sbin CACHE PATH "System admin executables (sbin)")
-endif ()
-if (NOT CMAKE_INSTALL_LIBDIR)
-  set(CMAKE_INSTALL_LIBDIR lib CACHE PATH "Object code libraries (lib)")
-endif ()
-if (NOT CMAKE_INSTALL_LIBEXECDIR)
-  set(CMAKE_INSTALL_LIBEXECDIR libexec CACHE PATH "Program executables (libexec)")
-endif ()
-if (NOT CMAKE_INSTALL_SHAREDSTATEDIR)
-  set(CMAKE_INSTALL_SHAREDSTATEDIR com CACHE PATH "Modifiable architecture-independent data (com)")
-endif ()
-if (NOT CMAKE_INSTALL_DATADIR)
-  set(CMAKE_INSTALL_DATADIR ${CMAKE_INSTALL_DATAROOTDIR} CACHE PATH "Read-only architecture-independent data (DATAROOTDIR)")
-endif ()
-if (NOT CMAKE_INSTALL_LOCALSTATEDIR)
-  set(CMAKE_INSTALL_LOCALSTATEDIR var CACHE PATH "Modifiable single-machine data (var)")
-endif ()
-if (NOT CMAKE_INSTALL_SYSCONFDIR)
-  set(CMAKE_INSTALL_SYSCONFDIR etc CACHE PATH "Read-only single-machine data (etc)")
-endif ()
-if (NOT CMAKE_INSTALL_RUNSTATEDIR)
-  set(CMAKE_INSTALL_RUNSTATEDIR ${CMAKE_INSTALL_LOCALSTATEDIR}/run CACHE PATH "Run-time variable data (LOCALSTATEDIR/run)")
-endif ()
-if (NOT CMAKE_INSTALL_LOCALEDIR)
-  set(CMAKE_INSTALL_LOCALEDIR ${CMAKE_INSTALL_DATAROOTDIR}/locale CACHE PATH "Locale-dependent data (DATAROOTDIR/locale)")
-endif ()
-if (NOT CMAKE_INSTALL_DOCDIR)
-  set(CMAKE_INSTALL_DOCDIR ${CMAKE_INSTALL_DATAROOTDIR}/doc/${PROJECT_NAME} CACHE PATH "Documentation root (DATAROOTDIR/doc/PROJECT_NAME)")
-endif ()
-if (NOT CMAKE_INSTALL_INFODIR)
-  set(CMAKE_INSTALL_INFODIR ${CMAKE_INSTALL_DATAROOTDIR}/info CACHE PATH "Info documentation (DATAROOTDIR/info)")
-endif ()
-if (NOT CMAKE_INSTALL_MANDIR)
-  set(CMAKE_INSTALL_MANDIR ${CMAKE_INSTALL_DATAROOTDIR}/man CACHE PATH "Man documentation (DATAROOTDIR/man)")
-endif ()
-# Don't set this var! https://cmake.org/cmake/help/latest/command/install.html#installing-files
-if (NOT CMAKE_INSTALL_DATAROOTDIR)
-  set(CMAKE_INSTALL_DATAROOTDIR share CACHE PATH "Read-only architecture-independent data root (share)")
-endif ()
-include(GNUInstallDirs)
-
-
-# Set the binary output dir, if not set
-if (NOT CMAKE_RUNTIME_OUTPUT_DIRECTORY)
-  set(CMAKE_RUNTIME_OUTPUT_DIRECTORY  "${CMAKE_CURRENT_BINARY_DIR}/bin" CACHE PATH "Executable/dll output dir.")
-endif ()
-# Set the archive output dir, if not set
-if (NOT CMAKE_ARCHIVE_OUTPUT_DIRECTORY)
-  set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY  "${CMAKE_CURRENT_BINARY_DIR}/lib" CACHE PATH "Archive output dir.")
-endif ()
-# Set the library output dir, if not set
-if (NOT CMAKE_LIBRARY_OUTPUT_DIRECTORY)
-  set(CMAKE_LIBRARY_OUTPUT_DIRECTORY  "${CMAKE_CURRENT_BINARY_DIR}/lib" CACHE PATH "Library output dir.")
-endif ()
-# Set the MSVC debug symbol output dir, if not set
-if (NOT CMAKE_PDB_OUTPUT_DIRECTORY)
-  set(CMAKE_PDB_OUTPUT_DIRECTORY      "${CMAKE_CURRENT_BINARY_DIR}/bin" CACHE PATH "PDB (MSVC debug symbol)output dir.")
-endif ()
-set(CMAKE_CFG_INTDIR                  "${CMAKE_CURRENT_BINARY_DIR}/int" CACHE PATH "CMake build artefacts directory.")
-
-
-# Read the .gitignore file, if found
-if (${CMAKE_CURRENT_SOURCE_DIR}/.gitignore)
-  file(READ ${CMAKE_CURRENT_SOURCE_DIR}/.gitignore ${PROJECT_NAME}_GITIGNORE_FILE)
-endif()
-# Read the .gitattributes file, if found
-if (${CMAKE_CURRENT_SOURCE_DIR}/.gitattributes)
-  file(READ ${CMAKE_CURRENT_SOURCE_DIR}/.gitattributes ${PROJECT_NAME}_GITATTRIBUTES_FILE)
-endif()
-# Read the .gitattributes file, if found
-if (${CMAKE_CURRENT_SOURCE_DIR}/.gitmodules)
-  file(READ ${CMAKE_CURRENT_SOURCE_DIR}/.gitmodules ${PROJECT_NAME}_GITMODULES_FILE)
+set(StoneyDSP_REQUIRED_FLAGS)
+if(NOT (CYGWIN OR MSYS))
+	list(APPEND StoneyDSP_REQUIRED_FLAGS -municode)
 endif()
 
+list(APPEND StoneyDSP_REQUIRED_FLAGS -mwindows)
 
-if (CMAKE_CXX_COMPILER_ID MATCHES "GNU")
-  set(PEDANTIC_COMPILE_FLAGS -pedantic-errors -Wall -Wextra -pedantic
-      -Wold-style-cast -Wundef
-      -Wredundant-decls -Wwrite-strings -Wpointer-arith
-      -Wcast-qual -Wformat=2 -Wmissing-include-dirs
-      -Wcast-align
-      -Wctor-dtor-privacy -Wdisabled-optimization
-      -Winvalid-pch -Woverloaded-virtual
-      -Wconversion -Wundef
-      -Wno-ctor-dtor-privacy -Wno-format-nonliteral)
-  if (NOT CMAKE_CXX_COMPILER_VERSION VERSION_LESS 4.6)
-      set(PEDANTIC_COMPILE_FLAGS ${PEDANTIC_COMPILE_FLAGS}
-         -Wno-dangling-else -Wno-unused-local-typedefs)
-  endif ()
-  if (NOT CMAKE_CXX_COMPILER_VERSION VERSION_LESS 5.0)
-      set(PEDANTIC_COMPILE_FLAGS ${PEDANTIC_COMPILE_FLAGS} -Wdouble-promotion
-          -Wtrampolines -Wzero-as-null-pointer-constant -Wuseless-cast
-          -Wvector-operation-performance -Wsized-deallocation -Wshadow)
-  endif ()
-  if (NOT CMAKE_CXX_COMPILER_VERSION VERSION_LESS 6.0)
-      set(PEDANTIC_COMPILE_FLAGS ${PEDANTIC_COMPILE_FLAGS} -Wshift-overflow=2
-          -Wnull-dereference -Wduplicated-cond)
-  endif ()
-  set(WERROR_FLAG -Werror)
+
+
+if (StoneyDSP_MASTER_PROJECT AND CMAKE_GENERATOR MATCHES "Visual Studio")
+	include (FindSetEnv)
+	if (WINSDK_SETENV)
+		set (MSBUILD_SETUP "call \"${WINSDK_SETENV}\"")
+	endif ()
+	join(netfxpath
+	"C:\\Program Files\\Reference Assemblies\\Microsoft\\Framework\\"
+	".NETFramework\\v4.0"
+	)
+	file (WRITE run-msbuild.bat "
+	${MSBUILD_SETUP}
+	${CMAKE_MAKE_PROGRAM} -p:FrameworkPathOverride=\"${netfxpath}\" %*")
 endif ()
 
-if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-  set(PEDANTIC_COMPILE_FLAGS -Wall -Wextra -pedantic -Wconversion -Wundef
-      -Wdeprecated -Wweak-vtables -Wshadow
-      -Wno-gnu-zero-variadic-macro-arguments)
-  # check_cxx_compiler_flag(-Wzero-as-null-pointer-constant HAS_NULLPTR_WARNING) // Crashing github workflows...
-  if (HAS_NULLPTR_WARNING)
-    set(PEDANTIC_COMPILE_FLAGS ${PEDANTIC_COMPILE_FLAGS}
-        -Wzero-as-null-pointer-constant)
-  endif ()
-  set(WERROR_FLAG -Werror)
-endif ()
+set (StoneyDSPTargets)
 
-if (MSVC)
-  set(PEDANTIC_COMPILE_FLAGS /W3)
-  set(WERROR_FLAG /WX)
-endif ()
 
-add_subdirectory("./Development/fmtlib/fmt")
-add_subdirectory("./Development/catchorg/Catch2")
-add_subdirectory("./Development/StoneyDSP/cmodule")
-# add_subdirectory("./Development/StoneyDSP/CMakeProject1")
+add_executable (executable)
+add_executable (StoneyDSP::executable ALIAS executable)
+
+target_include_directories (executable
+
+    PRIVATE
+
+        $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/include>
+        $<INSTALL_INTERFACE:include>
+)
+
+set_target_properties (executable
+
+    PROPERTIES
+        RUNTIME_OUTPUT_DIRECTORY bin
+        LIBRARY_OUTPUT_DIRECTORY lib
+        ARCHIVE_OUTPUT_DIRECTORY lib
+        PDB_OUTPUT_DIRECTORY     bin
+)
+
+target_sources (executable
+
+    PRIVATE
+
+        FILE_SET executable_PRIVATE_HEADERS
+        TYPE HEADERS
+
+        BASE_DIRS
+            $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include/${PROJECT_NAME}>
+            $<INSTALL_INTERFACE:include/${PROJECT_NAME}>
+        FILES
+            # include/${PROJECT_NAME}/main.h
+            $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include/${PROJECT_NAME}/Main.h>
+            $<INSTALL_INTERFACE:include/${PROJECT_NAME}/Main.h>
+)
+
+target_sources (executable
+
+    PRIVATE
+        # src/runtime/main.cpp
+        "${CMAKE_CURRENT_SOURCE_DIR}/include/${PROJECT_NAME}/Main.cpp"
+)
+
+set_target_properties (executable
+
+    PROPERTIES
+        RUNTIME_OUTPUT_DIRECTORY bin
+        LIBRARY_OUTPUT_DIRECTORY lib
+        ARCHIVE_OUTPUT_DIRECTORY lib
+        PDB_OUTPUT_DIRECTORY     bin
+)
+
+target_compile_definitions(executable
+
+	PUBLIC
+		${StoneyDSP_REQUIRED_DEFS}
+)
+
+target_compile_options(executable
+
+	PUBLIC
+		${StoneyDSP_REQUIRED_FLAGS}
+)
+
+target_link_options (executable
+
+	PUBLIC
+		${StoneyDSP_REQUIRED_FLAGS}
+)
+
+# target_link_libraries (executable
+
+#     ${PROJECT_NAME}::window
+# )
+
+list (APPEND StoneyDSPTargets executable)
+
+install (
+	TARGETS StoneyDSPTargets
+	EXPORT StoneyDSPTargets
+	LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+	ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+	RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
+	INCLUDES DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
+    # FILE_SET StoneyDSP_PUBLIC_HEADERS
+)
+
+install (
+	EXPORT StoneyDSPTargets
+	FILE StoneyDSPTargets.cmake
+	NAMESPACE StoneyDSP::
+	DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/StoneyDSP"
+)
+
+# ##-- Create package config
+
+configure_package_config_file (
+	"${CMAKE_CURRENT_SOURCE_DIR}/share/StoneyDSPConfig.cmake.in"
+	"${CMAKE_CURRENT_BINARY_DIR}/StoneyDSPConfig.cmake"
+	INSTALL_DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/StoneyDSP"
+)
+
+install (
+	FILES
+	"${CMAKE_CURRENT_BINARY_DIR}/StoneyDSPConfig.cmake"
+		# "${CMAKE_CURRENT_BINARY_DIR}/StoneyDSPConfigVersion.cmake"
+	DESTINATION
+		"${CMAKE_INSTALL_LIBDIR}/cmake/StoneyDSP"
+)
+
+export (
+	EXPORT StoneyDSPTargets
+	FILE "${CMAKE_CURRENT_BINARY_DIR}/StoneyDSPTargets.cmake"
+	NAMESPACE StoneyDSP::
+)

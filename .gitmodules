@@ -1,7 +1,0 @@
-
-[submodule "vcpkg"]
-	path = /home/stoneydsp/.vcpkg
-	url = ../../microsoft/vcpkg
-[submodule "Development/Ableton/link"]
-	path = Development/Ableton/link
-	url = ../../Ableton/link
