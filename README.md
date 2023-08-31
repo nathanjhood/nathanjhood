@@ -3,7 +3,7 @@
 | I am a software developer with a strong interest in system-level programming. |
 | [![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=StoneyDSP)](https://github.com/anuraghazra/github-readme-stats) |
 | I am also a musician making Audio software plugins using a variety of languages and workflows, and have some background experience in web development. |
-| [![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api/top-langs/?username=StoneyDSP)](https://github.com/anuraghazra/github-readme-stats) |
+| [![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api/top-langs/?username=StoneyDSP&langs_count=8)](https://github.com/anuraghazra/github-readme-stats) |
 | In my personal work, I have developed an (un-)healthy interest in automating build systems for system-agnostic interoperabilities and cross-compiling routines, with an eye for driving continuous integration/deployment pipelines in modern software development and production workflows. |
 | <p align="center"><img src="https://skillicons.dev/icons?i=cpp,c,cmake,js,ts,html,css,nodejs&perline=4" alt="Tech Stack" /></p> |
 | Here you will find public repos of my personal research and development of audio plugins using popular frameworks such as JUCE and my own DSP, and more recently; explorations in cross-compiling toolchain technologies (WSL, MSYS2, MinGW, etc) and popular buildsystems (CMake, Meson, Make, Autotools, etc); code bindings to families such as the Win32 API, Linux Standards Base and Unix Single Specification; and usage of the Component Object Model alongside the C and C++ standard libraries, which you may download, compile, use, and study for free (mostly MIT or GPL2/3). |
