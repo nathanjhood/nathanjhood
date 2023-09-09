@@ -11,6 +11,14 @@
 		"type": "git"
 	},
 	"readme": "https://github.com/StoneyDSP/StoneyDSP/README.md",
+	"files": [
+		"index.js",
+		"lib/*.js",
+		"bin/*.js"
+	],
+  "bin": {
+    "my-new-project-cli": "bin/my-new-project-cli.js"
+  },
 	"scripts": {
 		"serve": "npx serve",
 		"typescript:compile": "npx tsc"
