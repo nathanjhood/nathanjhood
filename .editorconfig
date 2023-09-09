@@ -1,4 +1,4 @@
-# EditorConfig configuration for pacman
+# EditorConfig configuration
 # http://EditorConfig.org
 
 # Top-most EditorConfig file
@@ -11,12 +11,29 @@ end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
 charset = utf-8
-indent_style = tab
+indent_style = space
 indent_size = 4
 max_line_length = 80
 
+# License header
+file_header_template = Copyright (c) StoneyDSP.\nLicensed under the MIT License.
+
+# manifest validation tool requires BOM
+[*.man]
+charset = utf-8-bom
+
+[*.{js,jsx,ts,tsx,d.ts,mls}]
+indent_style = space
+indent_size = 2
+
 [*.json]
 indent_size = 2
+
+[jquery]
+indent_style = tab
+indent_size = 4
+trim_trailing_whitespace = true
+max_line_length = 100
 
 [*.py]
 indent_style = space
@@ -45,6 +62,11 @@ indent_size = 2
 [*.{msbuild,props,targets,config,nuspec}]
 indent_size = 2
 end_of_line = crlf
+
+[*.manifest]
+indent_size = 2
+end_of_line = crlf
+
 
 [{Makefile,*.mak}]
 indent_style = tab
@@ -111,3 +133,7 @@ end_of_line = crlf
 end_of_line = crlf
 [*.{ps1,psm1}]
 end_of_line = crlf
+
+[{CMakeLists.txt,*.cmake}]
+indent_size = 4
+indent_style = space
