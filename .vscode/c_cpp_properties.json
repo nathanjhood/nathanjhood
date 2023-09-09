@@ -1,0 +1,45 @@
+{
+  "configurations": [
+    {
+      "name": "Linux Clang",
+      "includePath": [
+        "${default}"
+      ],
+      "defines": [
+        "${default}"
+      ],
+      "browse": {
+        "databaseFilename": ".vscode/browse/.browse.vc.db",
+        "limitSymbolsToIncludedHeaders": true,
+        "path": [
+          "${default}"
+        ]
+      },
+      "compilerPath": "/usr/bin/clang",
+      "cStandard": "c17",
+      "cppStandard": "c++14",
+      "intelliSenseMode": "linux-clang-x64"
+    },
+    {
+      "name": "Linux GNU",
+      "includePath": [
+        "${default}"
+      ],
+      "defines": [
+        "${default}"
+      ],
+      "browse": {
+        "databaseFilename": ".vscode/browse/.browse.vc.db",
+        "limitSymbolsToIncludedHeaders": true,
+        "path": [
+          "${default}"
+        ]
+      },
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "c17",
+      "cppStandard": "c++14",
+      "intelliSenseMode": "linux-gcc-x64"
+    }
+  ],
+  "version": 4
+}
