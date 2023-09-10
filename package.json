@@ -4,7 +4,7 @@
 	"author": {
 		"email": "nathanjhood@googlemail.com",
 		"name": "Nathan J. Hood",
-		"url": "https://github.com/StoneyDSP/StoneyDSP.git"
+		"url": "https://stoneydsp.github.io"
 	},
 	"repository": {
 		"url": "https://github.com/StoneyDSP/StoneyDSP.git",
@@ -16,14 +16,30 @@
 		"lib/*.js",
 		"bin/*.js"
 	],
-  "bin": {
-    "my-new-project-cli": "bin/my-new-project-cli.js"
+	"bin": {
+		"stoneydsp": "bin/stoneydsp"
+	},
+  "exports": {
+
+    "default": "./index.js",
+
+    "node": {
+      "import": "./index.mjs",
+      "require": "./index.cjs",
+      "default": "./index.js"
+    }
   },
+  "type": "commonjs",
+
 	"scripts": {
 		"serve": "npx serve",
 		"typescript:compile": "npx tsc"
 	},
 	"devDependencies": {
 		"typescript": "^5.2.2"
+	},
+	"dependencies": {
+		"node-addon-api": "^7.0.0",
+		"node-api-headers": "^1.1.0"
 	}
 }
