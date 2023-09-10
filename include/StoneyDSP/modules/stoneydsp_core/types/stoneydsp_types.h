@@ -51,20 +51,20 @@ typedef Double_t Double;
 typedef Short_t Short;
 typedef Long_t Long;
 
-#define Class_t class
-#define Struct_t struct
+// #define Class_t class
+// #define Struct_t struct
 
 // typedef Class_t Class;
 // typedef Struct_t Struct;
 
-#define Interface Class_t
+// #define Interface Class_t
 
-#define Public public:
-#define Private private:
-#define Protected protected:
+// #define Public public:
+// #define Private private:
+// #define Protected protected:
 
-#define Const const
-#define NoExcept noexcept
+// #define Const const
+// #define NoExcept noexcept
 
 // #define ptr *
 // #define ref &

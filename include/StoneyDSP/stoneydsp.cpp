@@ -26,4 +26,5 @@ namespace StoneyDSP
 
 #include "stoneydsp.h"
 
-#include "modules/stoneydsp_core/stoneydsp_core.cpp"
+// #include "modules/stoneydsp_core/stoneydsp_core.cpp"
+// #include "modules/stoneydsp_nodejs/stoneydsp_nodejs.cpp"

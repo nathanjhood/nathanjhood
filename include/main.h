@@ -24,7 +24,7 @@
  *
  * @return int
  */
-Int wmain(void);
+// Int wmain(void);
 
 /**
  * @brief Functions within the source program perform one or more specific
@@ -53,7 +53,7 @@ Int wmain(Int argc, wchar_t* argv[]);
  * @param envp Array of environment variable strings.
  * @return int
  */
-Int wmain(Int argc, wchar_t* argv[], wchar_t* envp[]);
+// Int wmain(Int argc, wchar_t* argv[], wchar_t* envp[]);
 
 // /**
 //  * @brief Functions within the source program perform one or more specific

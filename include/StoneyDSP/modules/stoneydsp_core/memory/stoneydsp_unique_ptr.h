@@ -23,7 +23,7 @@ class unique_ptr
 {
     Type* ptr;
 
-Public
+public:
     //==========================================================================
     /** Default Constructor. */
     inline unique_ptr() : ptr(nullptr)

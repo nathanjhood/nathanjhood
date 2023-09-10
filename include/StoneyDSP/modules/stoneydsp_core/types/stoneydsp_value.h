@@ -24,7 +24,7 @@ namespace Types
  * @tparam T
  */
 template <class T>
-Interface Value
+class Value
 {
 public:
     //==========================================================================
