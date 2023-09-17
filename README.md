@@ -6,7 +6,7 @@
 | |
 | <p>I am also a musician making Audio software plugins using a variety of languages and workflows, and also have experience in web development.</p> |
 | |
-| [![StoneyDSP's GitHub stats](https://github-readme-stats-lvkklpsn0-stoneydsp.vercel.app/api/top-langs/?username=StoneyDSP&langs_count=8&show_icons=true&theme=transparent&hide=tex)](https://github.com/StoneyDSP/github-readme-stats) |
+| [![StoneyDSP's GitHub stats](https://github-readme-stats-lvkklpsn0-stoneydsp.vercel.app/api/top-langs/?username=StoneyDSP&langs_count=8&show_icons=true&theme=transparent&hide=tex,html)](https://github.com/StoneyDSP/github-readme-stats) |
 | |
 | <p>In my personal work, I have developed an interest in automating build systems for system-agnostic interoperabilities and cross-compiling routines, with an eye for driving continuous integration/deployment pipelines in modern software development and production workflows.</p> |
 | <p align="center"><img src="https://skillicons.dev/icons?i=cpp,c,cmake,js,ts,html,css,nodejs&perline=4" alt="Tech Stack" /></p> |
