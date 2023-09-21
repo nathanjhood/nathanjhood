@@ -2,23 +2,23 @@
 | :-: |
 | <p>I am a software developer with a strong interest in system-level programming.</p> |
 | |
-| [![StoneyDSP's GitHub stats](https://github-readme-stats.stoneydsp.com/api?username=StoneyDSP&show_icons=true&theme=transparent)](https://github.com/StoneyDSP/github-readme-stats) |
+| [![StoneyDSP's GitHub stats](https://github-readme-stats.stoneydsp.com/api?username=StoneyDSP\&show_icons=true&theme=transparent)](https://github.com/StoneyDSP/github-readme-stats) |
 | |
 | <p>I am also a musician making Audio software plugins using a variety of languages and workflows, and also have experience in web development.</p> |
 | |
-| [![StoneyDSP's GitHub stats](https://github-readme-stats.stoneydsp.com/api/top-langs/?username=StoneyDSP&langs_count=8&show_icons=true&theme=transparent&hide=tex,html)](https://github.com/StoneyDSP/github-readme-stats) |
+| [![StoneyDSP's GitHub stats](https://github-readme-stats.stoneydsp.com/api/top-langs/?username=StoneyDSP\&langs_count=8\&show_icons=true\&theme=transparent\&hide=tex,html)](https://github.com/StoneyDSP/github-readme-stats) |
 | |
 | <p>In my personal work, I have developed an interest in automating build systems for system-agnostic interoperabilities and cross-compiling routines, with an eye for driving continuous integration/deployment pipelines in modern software development and production workflows.</p> |
 | <p align="center"><img src="https://skillicons.dev/icons?i=cpp,c,cmake,js,ts,html,css,nodejs&perline=4" alt="Tech Stack" /></p> |
 | <p>Here you will find public repos of my personal research and development of audio plugins using popular frameworks such as JUCE and my own DSP, and more recently; explorations in cross-compiling toolchain technologies (WSL, MSYS2, MinGW, etc) and popular buildsystems (CMake, Meson, Make, Autotools, etc); code bindings to families such as the Win32 API, Linux Standards Base and Unix Single Specification; and usage of the Component Object Model alongside the C and C++ standard libraries, which you may download, compile, use, and study for free (mostly MIT or GPL2/3).</p> |
 | |
-| [![Biquads](https://github-readme-stats.stoneydsp.com/api/pin/?username=StoneyDSP&repo=Biquads&theme=transparent)](https://github.com/StoneyDSP/Biquads) [![UBento](https://github-readme-stats.stoneydsp.com/api/pin/?username=StoneyDSP&repo=UBento&theme=transparent)](https://github.com/StoneyDSP/UBento) |
+| [![Biquads](https://github-readme-stats.stoneydsp.com/api/pin/?username=StoneyDSP\&repo=Biquads\&theme=transparent)](https://github.com/StoneyDSP/Biquads) [![UBento](https://github-readme-stats.stoneydsp.com/api/pin/?username=StoneyDSP\&repo=UBento\&theme=transparent)](https://github.com/StoneyDSP/UBento) |
 | |
-| [![OrfanidisBiquad](https://github-readme-stats.stoneydsp.com/api/pin/?username=StoneyDSP&repo=OrfanidisBiquad&theme=transparent)](https://github.com/StoneyDSP/OrfanidisBiquad) [![CxxWin](https://github-readme-stats.stoneydsp.com/api/pin/?username=StoneyDSP&repo=CxxWin&theme=transparent)](https://github.com/StoneyDSP/CxxWin) |
+| [![OrfanidisBiquad](https://github-readme-stats.stoneydsp.com/api/pin/?username=StoneyDSP\&repo=OrfanidisBiquad\&theme=transparent)](https://github.com/StoneyDSP/OrfanidisBiquad) [![CxxWin](https://github-readme-stats.stoneydsp.com/api/pin/?username=StoneyDSP\&repo=CxxWin\&theme=transparent)](https://github.com/StoneyDSP/CxxWin) |
 | |
-| [![NonLinearFilters](https://github-readme-stats.stoneydsp.com/api/pin/?username=StoneyDSP&repo=NonLinearFilters&theme=transparent)](https://github.com/StoneyDSP/NonLinearFilters) [![cmodule](https://github-readme-stats.stoneydsp.com/api/pin/?username=StoneyDSP&repo=cmodule&theme=transparent)](https://github.com/StoneyDSP/cmodule) |
+| [![NonLinearFilters](https://github-readme-stats.stoneydsp.com/api/pin/?username=StoneyDSP\&repo=NonLinearFilters\&theme=transparent)](https://github.com/StoneyDSP/NonLinearFilters) [![cmodule](https://github-readme-stats.stoneydsp.com/api/pin/?username=StoneyDSP\&repo=cmodule\&theme=transparent)](https://github.com/StoneyDSP/cmodule) |
 | |
-| [![AudioPlugin-SVF](https://github-readme-stats.stoneydsp.com/api/pin/?username=StoneyDSP&repo=AudioPlugin-SVF&theme=transparent)](https://github.com/StoneyDSP/AudioPlugin-SVF) [![AudioPlugin](https://github-readme-stats.stoneydsp.com/api/pin/?username=StoneyDSP&repo=AudioPlugin&theme=transparent)](https://github.com/StoneyDSP/AudioPlugin) |
+| [![AudioPlugin-SVF](https://github-readme-stats.stoneydsp.com/api/pin/?username=StoneyDSP\&repo=AudioPlugin-SVF\&theme=transparent)](https://github.com/StoneyDSP/AudioPlugin-SVF) [![AudioPlugin](https://github-readme-stats.stoneydsp.com/api/pin/?username=StoneyDSP\&repo=AudioPlugin\&theme=transparent)](https://github.com/StoneyDSP/AudioPlugin) |
 | |
 | <p align="centre">Currently on the workbench:</p><p align="left"><ul><li><a href="https://github.com/StoneyDSP/MSYS2-toolchain.git">A CMake buildsystem and toolchain for (Msys2) MinGW/Cygwin-based C/C++ projects on Windows, inspired by microsoft vcpkg</a>.</li><li><a href="https://github.com/StoneyDSP/MSYS2-libconfig.git">A piecewise conversion of Arch Linux Pacman package manager to the CMake build platform, for eventual usage with the above</a>.</li><li><a href="https://github.com/StoneyDSP/CxxWin.git">A Windows-Native graphics application using Direct2D and Microsoft's COM - a good tester project for the Msys toolchains!</a>.</li><li><a href="https://github.com/cmodules/cmodules">A study on bridging the gap between NodeJS-based application binary development and C/C++ code libraries</a>.</li><li>A large pot of coffee, forever in need of refilling.</li></ul></p> |
 | |
