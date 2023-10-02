@@ -14,7 +14,7 @@
 | |
 | [![Biquads](https://github-readme-stats.vercel.app/api/pin/?username=nathanjhood\&repo=Biquads\&theme=transparent)](https://github.com/StoneyDSP/Biquads) [![UBento](https://github-readme-stats.vercel.app/api/pin/?username=nathanjhood\&repo=UBento\&theme=transparent)](https://github.com/StoneyDSP/UBento) |
 | |
-| [![OrfanidisBiquad](https://github-readme-stats.vercel.app/api/pin/?username=nathanjhood\&repo=OrfanidisBiquad\&theme=transparent)](https://github.com/StoneyDSP/OrfanidisBiquad) [![CxxWin](https://github-readme-stats.stoneydsp.com/api/pin/?username=nathanjhood\&repo=CxxWin\&theme=transparent)](https://github.com/StoneyDSP/CxxWin) |
+| [![OrfanidisBiquad](https://github-readme-stats.vercel.app/api/pin/?username=nathanjhood\&repo=OrfanidisBiquad\&theme=transparent)](https://github.com/StoneyDSP/OrfanidisBiquad) [![CxxWin](https://github-readme-stats.vercel.app/api/pin/?username=nathanjhood\&repo=CxxWin\&theme=transparent)](https://github.com/StoneyDSP/CxxWin) |
 | |
 | [![NonLinearFilters](https://github-readme-stats.vercel.app/api/pin/?username=nathanjhood\&repo=NonLinearFilters\&theme=transparent)](https://github.com/nathanjhood/NonLinearFilters) [![cmodule](https://github-readme-stats.vercel.app/api/pin/?username=nathanjhood\&repo=cmodule\&theme=transparent)](https://github.com/nathanjhood/cmodule) |
 | |
