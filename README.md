@@ -14,7 +14,7 @@
 | |
 | [![Biquads](https://github-readme-stats-two-lime-18.vercel.app/api/pin/?username=nathanjhood\&repo=Biquads\&theme=transparent)](https://github.com/nathanjhood/Biquads) [![UBento](https://github-readme-stats-two-lime-18.vercel.app/api/pin/?username=nathanjhood\&repo=UBento\&theme=transparent)](https://github.com/nathanjhood/UBento) |
 | |
-| [![Biquads](https://github-readme-stats-two-lime-18.vercel.app/api/pin/?username=nathanjhood\&repo=base64\&theme=transparent)](https://github.com/nathanjhood/base64) [![Biquads](https://github-readme-stats-two-lime-18.vercel.app/api/pin/?username=nathanjhood\&repo=https\&theme=transparent)](https://github.com/nathanjhood/https)|
+| [![noderc](https://github-readme-stats-two-lime-18.vercel.app/api/pin/?username=nathanjhood\&repo=noderc\&theme=transparent)](https://github.com/nathanjhood/noderc) [![base64](https://github-readme-stats-two-lime-18.vercel.app/api/pin/?username=nathanjhood\&repo=base64\&theme=transparent)](https://github.com/nathanjhood/base64)|
 | |
 | [![OrfanidisBiquad](https://github-readme-stats-two-lime-18.vercel.app/api/pin/?username=nathanjhood\&repo=OrfanidisBiquad\&theme=transparent)](https://github.com/nathanjhood/OrfanidisBiquad) [![CxxWin](https://github-readme-stats-two-lime-18.vercel.app/api/pin/?username=nathanjhood\&repo=CxxWin\&theme=transparent)](https://github.com/nathanjhood/CxxWin) |
 | |
