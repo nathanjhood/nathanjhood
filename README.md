@@ -1,5 +1,13 @@
 | <p>Hi! I'm Nathan (aka <a href="https://github.com/StoneyDSP">StoneyDSP</a>).</p>  |
 | :-: |
+| [![StoneyDSP's GitHub stats](https://github-readme-stats-two-lime-18.vercel.app/api?username=nathanjhood\&show_icons=true&theme=transparent)](https://github.com/nathanjhood/github-readme-stats) |
+| |
+| [![StoneyDSP's GitHub stats](https://github-readme-stats-two-lime-18.vercel.app/api/top-langs/?username=nathanjhood\&langs_count=10\&show_icons=true\&theme=transparent\&hide=TeX,html,css)](https://github.com/nathanjhood/github-readme-stats) |
+
+<!-- 
+
+| <p>Hi! I'm Nathan (aka <a href="https://github.com/StoneyDSP">StoneyDSP</a>).</p>  |
+| :-: |
 | <p>I am a software developer with a strong interest in system-level programming.</p> |
 | |
 | [![StoneyDSP's GitHub stats](https://github-readme-stats-two-lime-18.vercel.app/api?username=nathanjhood\&show_icons=true&theme=transparent)](https://github.com/nathanjhood/github-readme-stats) |
@@ -29,3 +37,5 @@
 | <p>Coffee! That's how I get things done!! If you'd like to see me get more things done, please kindly consider <a href="https://www.patreon.com/bePatron?u=8549187" data-patreon-widget-type="become-patron-button">buying me a coffee</a> or two!</p> |
 | <a href= "https://paypal.me/StoneyDSPAudio?country.x=ES&locale.x=en_US"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif"/></a> |
 | <a href="https://www.patreon.com/bePatron?u=8549187" data-patreon-widget-type="become-patron-button"><p>StoneyDSP on Patreon</p></a> |
+
+-->
