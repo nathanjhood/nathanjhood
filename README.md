@@ -2,7 +2,7 @@
 | :-: |
 | [![StoneyDSP's GitHub stats](https://github-readme-stats-two-lime-18.vercel.app/api?username=nathanjhood\&show_icons=true&theme=transparent)](https://github.com/nathanjhood/github-readme-stats) |
 | Currently studying: React-native/expo |
-| [![StoneyDSP's GitHub stats](https://github-readme-stats-two-lime-18.vercel.app/api/top-langs/?username=nathanjhood\&langs_count=10\&show_icons=true\&theme=transparent\&hide=TeX,html,css)](https://github.com/nathanjhood/github-readme-stats) |
+| [![StoneyDSP's GitHub stats](https://github-readme-stats-two-lime-18.vercel.app/api/top-langs/?username=nathanjhood\&langs_count=14\&show_icons=true\&theme=transparent\&hide=TeX,html,css)](https://github.com/nathanjhood/github-readme-stats) |
 
 <!-- 
 
