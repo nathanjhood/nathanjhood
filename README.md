@@ -1,7 +1,7 @@
 | <p>Hi! I'm Nathan (aka <a href="https://github.com/StoneyDSP">StoneyDSP</a>).</p>  |
 | :-: |
 | [![StoneyDSP's GitHub stats](https://github-readme-stats-two-lime-18.vercel.app/api?username=nathanjhood\&show_icons=true&theme=transparent)](https://github.com/nathanjhood/github-readme-stats) |
-| Currently studying: React-native/expo/Flutter |
+| Currently working on: Combining React-Native with Node Addon API |
 | [![StoneyDSP's GitHub stats](https://github-readme-stats-two-lime-18.vercel.app/api/top-langs/?username=nathanjhood\&langs_count=14\&show_icons=true\&theme=transparent\&hide=TeX,html,css)](https://github.com/nathanjhood/github-readme-stats) |
 
 <!-- 
