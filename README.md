@@ -9,7 +9,7 @@
 | [![StoneyDSP's GitHub stats](https://github-readme-stats-two-lime-18.vercel.app/api/top-langs/?username=nathanjhood\&langs_count=14\&show_icons=true\&theme=transparent\&hide=TeX,html,css)](https://github.com/nathanjhood/github-readme-stats) |
 | <p>I love open-source software.</p> |
 | <p align="center"><img src="https://skillicons.dev/icons?i=ts,js,cpp,c,cmake,html,css,nodejs,java,kotlin,swift,python,react,vue,next,nuxt,aws,vercel,gitlab,github,npm,postman,jquery,figma,supabase,postgres,mysql,express,docker,windows,apple,linux&perline=4" alt="Tech Stack" /></p> |
-| |
+| <p>I build open-source software.</p> |
 | [![Biquads](https://github-readme-stats-two-lime-18.vercel.app/api/pin/?username=nathanjhood\&repo=Biquads\&theme=transparent)](https://github.com/nathanjhood/Biquads) [![UBento](https://github-readme-stats-two-lime-18.vercel.app/api/pin/?username=nathanjhood\&repo=UBento\&theme=transparent)](https://github.com/nathanjhood/UBento) |
 | |
 | [![esbuild-scripts](https://github-readme-stats-two-lime-18.vercel.app/api/pin/?username=nathanjhood\&repo=esbuild-scripts\&theme=transparent)](https://github.com/nathanjhood/esbuild-scripts) [![ts-esbuild-react-native-web](https://github-readme-stats-two-lime-18.vercel.app/api/pin/?username=nathanjhood\&repo=ts-esbuild-react-native-web\&theme=transparent)](https://github.com/nathanjhood/ts-esbuild-react-native-web)|
