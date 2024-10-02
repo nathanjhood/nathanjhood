@@ -3,9 +3,9 @@
 | |
 | I am a software and web developer, and a musician. |
 | |
-| _(Disclaimer: not a GPT user)_ | 
+| Currently focused on: React-Native, Node C/C++ Addon API, Edge computing, all things ECMA... | 
 | [![StoneyDSP's GitHub stats](https://github-readme-stats-two-lime-18.vercel.app/api?username=nathanjhood\&show_icons=true&theme=transparent)](https://github.com/nathanjhood/github-readme-stats) |
-| Currently focused on: React-Native, Node C/C++ Addon API, Edge computing, all things ECMA... |
+| |
 | [![StoneyDSP's GitHub stats](https://github-readme-stats-two-lime-18.vercel.app/api/top-langs/?username=nathanjhood\&langs_count=14\&show_icons=true\&theme=transparent\&hide=TeX,html,css)](https://github.com/nathanjhood/github-readme-stats) |
 | <p>I love open-source software.</p> |
 | <p align="center"><img src="https://skillicons.dev/icons?i=ts,js,cpp,c,cmake,html,css,nodejs,java,kotlin,swift,python,react,vue,next,nuxt,aws,vercel,gitlab,github,npm,postman,jquery,figma,supabase,postgres,mysql,express,docker,windows,apple,linux&perline=4" alt="Tech Stack" /></p> |
