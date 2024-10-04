@@ -1,4 +1,4 @@
-| Hi! I'm Nathan. |
+| Hi! I'm Nathan, aka [@nathanjhood](https://nathanjhood.github.io) |
 | :-: |
 | |
 | I am a software and web developer, and a musician. |
