@@ -1,7 +1,7 @@
 | Hi! I'm Nathan, aka [@nathanjhood](https://nathanjhood.github.io) |
 | :-: |
 | |
-| I am a software and web developer, and a musician. |
+| I am a system, mobile, and web developer and engineer, and a musician 🎼 |
 | [![StoneyDSP's GitHub stats](https://github-readme-stats-two-lime-18.vercel.app/api?username=nathanjhood\&show_icons=true&theme=transparent)](https://github.com/nathanjhood/github-readme-stats) |
 | Currently focused on: React-Native, Node C/C++ Addon API, Edge computing, all things ECMA... | 
 | [![StoneyDSP's GitHub stats](https://github-readme-stats-two-lime-18.vercel.app/api/top-langs/?username=nathanjhood\&langs_count=14\&show_icons=true\&theme=transparent\&hide=TeX,html,css)](https://github.com/nathanjhood/github-readme-stats) |
