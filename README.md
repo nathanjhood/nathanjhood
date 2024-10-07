@@ -10,7 +10,7 @@
 | |
 | <p>I love open-source software.</p> |
 | |
-| <p align="center"><img src="https://skillicons.dev/icons?i=ts,js,cpp,c,cmake,html,css,nodejs,java,kotlin,swift,python,react,vue,next,nuxt,aws,vercel,gitlab,github,npm,postman,jquery,figma,supabase,postgres,mysql,express,docker,windows,apple,linux&perline=4" alt="Tech Stack" /></p> |
+| <p align="center"><img src="https://skillicons.dev/icons?i=ts,js,cpp,c,cmake,html,css,nodejs,java,kotlin,swift,python,react,vue,next,nuxt&perline=4" alt="Tech Stack" />&ensp;<img src="https://skillicons.dev/icons?i=aws,vercel,gitlab,github,npm,postman,jquery,figma,supabase,postgres,mysql,express,docker,windows,apple,linux&perline=4" alt="Tech Stack" />&ensp;</p> |
 | |
 | <p>I build open-source software.</p> |
 | |
