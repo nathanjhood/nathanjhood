@@ -1,6 +1,6 @@
 <div align="center">
 
-| <p>Hi! I'm Nathan, aka: [@nathanjhood](https://nathanjhood.github.io)</p> |
+| <p align="center">Hi! I'm Nathan 👋</p> |
 | :-: |
 | <div align="center">[![StoneyDSP's GitHub stats](https://github-readme-stats-two-lime-18.vercel.app/api?username=nathanjhood\&show_icons=true\&bg_color=00000000\&theme=default)](https://github.com/nathanjhood/github-readme-stats#gh-light-mode-only)[![StoneyDSP's GitHub stats](https://github-readme-stats-two-lime-18.vercel.app/api?username=nathanjhood\&show_icons=true\&bg_color=00000000\&theme=dark)](https://github.com/nathanjhood/github-readme-stats#gh-dark-mode-only)</div> |
 | |
