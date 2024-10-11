@@ -11,7 +11,7 @@
 
 | <p align="center"><br /><b>Hi! <i>I'm Nathan</i></b> 👋</p> |
 | :-: |
-| <div align="left"><details align="right" open><summary></summary><div align="center">[![StoneyDSP's GitHub stats](https://github-readme-stats-two-lime-18.vercel.app/api?username=nathanjhood\&show_icons=true\&bg_color=00000000\&theme=default)](https://github.com/nathanjhood/github-readme-stats#gh-light-mode-only)[![StoneyDSP's GitHub stats](https://github-readme-stats-two-lime-18.vercel.app/api?username=nathanjhood\&show_icons=true\&bg_color=00000000\&theme=dark)](https://github.com/nathanjhood/github-readme-stats#gh-dark-mode-only)</div></details></div> |
+| <div align="left"><details align="right" open><summary></summary><div align="center"><picture><source srcset="https://github-readme-stats-two-lime-18.vercel.app/api?username=nathanjhood&show_icons=true&bg_color=00000000&theme=dark" media="(prefers-color-scheme: dark)" /><source srcset="https://github-readme-stats-two-lime-18.vercel.app/api?username=nathanjhood&show_icons=true&bg_color=00000000&theme=default" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)" /><img src="https://github-readme-stats-two-lime-18.vercel.app/api?username=nathanjhood&show_icons=true&bg_color=00000000" /></picture></div></details></div> |
 | &nbsp; |
 | <br /><p><br /><b>I am a system, mobile, and web developer and engineer; and, a musician</b> 🎼</p><br /> |
 | &nbsp; |
