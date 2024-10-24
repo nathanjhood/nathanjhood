@@ -1,45 +1,80 @@
 {
-	"name": "stoneydsp",
-	"version": "1.0.0-init",
-	"author": {
-		"email": "nathanjhood@googlemail.com",
-		"name": "Nathan J. Hood",
-		"url": "https://stoneydsp.github.io"
-	},
-	"repository": {
-		"url": "https://github.com/StoneyDSP/StoneyDSP.git",
-		"type": "git"
-	},
-	"readme": "https://github.com/StoneyDSP/StoneyDSP/README.md",
-	"files": [
-		"index.js",
-		"lib/*.js",
-		"bin/*.js"
-	],
-	"bin": {
-		"stoneydsp": "bin/stoneydsp"
-	},
-  "exports": {
-
-    "default": "./index.js",
-
-    "node": {
-      "import": "./index.mjs",
-      "require": "./index.cjs",
-      "default": "./index.js"
-    }
+  "name": "@nathanjhood/nathanjhood",
+  "version": "0.1.0",
+  "license": "MIT",
+  "private": true,
+  "author": {
+    "email": "nathanjhood@googlemail.com",
+    "name": "Nathan J. Hood",
+    "url": "https://github.com/nathanjhood"
   },
-  "type": "commonjs",
-
-	"scripts": {
-		"serve": "npx serve",
-		"typescript:compile": "npx tsc"
-	},
-	"devDependencies": {
-		"typescript": "^5.2.2"
-	},
-	"dependencies": {
-		"node-addon-api": "^7.0.0",
-		"node-api-headers": "^1.1.0"
-	}
+  "repository": {
+    "url": "git@github.com:nathanjhood/nathanjhood.git",
+    "type": "git+ssh"
+  },
+  "readme": "https://github.com/nathanjhood/nathanjhood/README.md",
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start"
+  },
+  "packageManager": "yarn@1.22.2",
+  "engines": {
+    "node": "^20.0.0"
+  },
+  "dependencies": {
+    "@react-native-community/cli": "^14.1.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-native": "^0.76.0",
+    "react-native-web": "^0.19.13",
+    "tsc": "^2.0.4",
+    "tsx": "^4.19.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.9",
+    "@babel/preset-env": "^7.25.9",
+    "@babel/preset-flow": "^7.25.9",
+    "@babel/preset-typescript": "^7.25.9",
+    "@babel/runtime": "^7.25.9",
+    "@eslint/js": "^9.12.0",
+    "@react-native/babel-preset": "^0.75.4",
+    "@react-native/metro-config": "^0.75.4",
+    "@react-native/typescript-config": "^0.75.4",
+    "@types/jest": "^29.5.13",
+    "@types/node": "^22.7.8",
+    "@types/prop-types": "^15.7.13",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
+    "@types/react-test-renderer": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^8.8.0",
+    "@typescript-eslint/parser": "^8.11.0",
+    "@typescript-eslint/type-utils": "^8.11.0",
+    "browserslist": "^4.24.2",
+    "clang-format": "^1.8.0",
+    "csstype": "^3.1.3",
+    "eslint": "9.x",
+    "eslint-config-prettier": "^9.1.0",
+    "node-addon-api": "^7.0.0",
+    "node-api-headers": "^1.1.0",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.8",
+    "react-test-renderer": "^18.3.1",
+    "tslib": "^2.7.0",
+    "typescript": "^5.6.2",
+    "typescript-eslint": "^8.10.0",
+    "undici-types": "^6.20.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }

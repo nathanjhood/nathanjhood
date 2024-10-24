@@ -1,0 +1,9 @@
+{
+  "name": "nathanjhood",
+  "displayName": "nathanjhood",
+  "expo": {
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}

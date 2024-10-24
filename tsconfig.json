@@ -1,0 +1,95 @@
+{
+  "extends": [
+    "@react-native/typescript-config/tsconfig.json"
+  ],
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "tsconfig",
+  "presets": [
+    [
+      "react-app",
+      {
+        "flow": false,
+        "typescript": true
+      }
+    ]
+  ],
+  "compilerOptions": {
+    // from @tsconfig/node20
+    "target": "es2023",
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
+    // taken from @tsconfig/strictest
+    "strict": true,
+    "allowUnusedLabels": false,
+    "allowUnreachableCode": false,
+    "exactOptionalPropertyTypes": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    // taken from 'https://tsx.is/typescript'
+    // Treat files as modules even if it doesn't use import/export
+    "moduleDetection": "force",
+    // Ignore module structure
+    "module": "Preserve",
+    // Allow JSON modules to be imported
+    "resolveJsonModule": true,
+    // Allow JS files to be imported from TS and vice versa
+    "allowJs": true,
+    // Use correct ESM import behavior
+    "esModuleInterop": true,
+    // Disallow features that require cross-file awareness
+    "isolatedModules": true,
+    // recommended
+    "verbatimModuleSyntax": true,
+    // Typechecking
+    "composite": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "skipLibCheck": false,
+    // React
+    "jsx": "react-jsx", // try "react-jsxdev" for development mode,
+    "jsxImportSource": "react",
+    // custom
+    "tsBuildInfoFile": "node_modules/.cache/.tsbuildinfo",
+    "paths": {
+      "@/*": [
+        "./app/*"
+      ],
+      "static/*": [
+        "./public/static/*"
+      ]
+    }
+  },
+  "include": [
+    "./index.js",
+    "tailwind.config.ts",
+    "server.tsx",
+    "**/**/*.d.ts",
+    "app",
+    "lib",
+    "src",
+    "**/**/*.mjs",
+    "**/**/*.js",
+    "**/**/*.json",
+    "**/**/*.ts",
+    "nativewind-env.d.ts"
+  ],
+  "exclude": [
+    ".watchmanconfig",
+    "postcss.config.js",
+    "eslint.config.mjs",
+    "prettier.config.mjs",
+    "node_modules",
+    "packages",
+    "coverage",
+    "build",
+    "dist"
+  ]
+}

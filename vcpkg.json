@@ -1,11 +1,11 @@
 {
   "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
-  "name": "stoneydsp",
+  "name": "nathanjhood",
   "version": "1.0.0-init",
   "description": [ "C++ Tools for Audio DSP and more." ],
   "license": "MIT",
-  "homepage": "https://github.com/StoneyDSP/StoneyDSP.git",
-  "maintainers": [ "StoneyDSP (Nathan J. Hood) <nathanjhood@googlemail.com>" ],
+  "homepage": "https://github.com/nathanjhood/nathanjhood.git",
+  "maintainers": [ "Nathan J. Hood <nathanjhood@googlemail.com>" ],
 
   "dependencies": [
     {

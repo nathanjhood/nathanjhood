@@ -1,6 +1,8 @@
 # This sets the default behaviour, overriding core.autocrlf
 * text=auto eol=lf
 
+*.pbxproj -text
+
 # All source files should have unix line-endings in the repository, but convert to native line-endings on checkout
 *.{c,m,C,M,c++,cc,cpp,cxx,mm,mpp,CPP,ixx,cppm,ccm,cxxm,c++m} text
 # Keep the include header(s) with LFs to make sure it is uploaded, hashed etc with LF
