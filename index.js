@@ -1,12 +1,16 @@
-/**
- * @format
- */
-// import type ReactNative = require("react-native");
-import reactNative from 'react-native';
-import appJson from './app.json';
-import App from './app/App';
-import './app/index.css';
+// @ts-check
 
-const {AppRegistry} = reactNative;
+import React from 'react';
+import {AppRegistry} from 'react-native';
+import {Provider} from 'react-redux';
+import {name as appName} from './app.json';
+import App from './src/App';
+import {store} from './src/app/store';
 
-AppRegistry.registerComponent(appJson.name, () => App);
+AppRegistry.registerComponent(appName, () => () => (
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>
+));

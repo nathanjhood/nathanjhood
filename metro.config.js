@@ -1,25 +1,14 @@
-/**
- * @file metro.config.mjs
- * @author Nathan J. Hood <nathanjhood@googlemail.com>
- * @brief
- * @version 0.1.0
- * @date 2024-09-05
- *
- * @copyright Copyright (c) 2024
- *
- */
+/** @type {Pick<import('metro-config'), 'mergeConfig'> & { getDefaultConfig: import('metro-config').getDefaultConfig }} */
+const {mergeConfig, getDefaultConfig} = require('@react-native/metro-config');
 
-const metroConfig = require('@react-native/metro-config');
-
-const {getDefaultConfig, mergeConfig} = metroConfig;
 /**
  * Metro configuration
  * https://reactnative.dev/docs/metro
  *
  * @type {import('metro-config').MetroConfig}
  */
-const config = mergeConfig(getDefaultConfig(__dirname), {
+const config = {
   /* your config */
-});
+};
 
-module.exports = config;
+module.exports = mergeConfig(getDefaultConfig(__dirname), config);

@@ -1,18 +1,18 @@
 {
-  "extends": [
-    "@react-native/typescript-config/tsconfig.json"
-  ],
+  // "extends": [
+  //   "@react-native/typescript-config/tsconfig.json"
+  // ],
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "tsconfig",
-  "presets": [
-    [
-      "react-app",
-      {
-        "flow": false,
-        "typescript": true
-      }
-    ]
-  ],
+  // "presets": [
+  //   [
+  //     "react-app",
+  //     {
+  //       "flow": false,
+  //       "typescript": true
+  //     }
+  //   ]
+  // ],
   "compilerOptions": {
     // from @tsconfig/node20
     "target": "es2023",
@@ -58,28 +58,27 @@
     "jsxImportSource": "react",
     // custom
     "tsBuildInfoFile": "node_modules/.cache/.tsbuildinfo",
-    "paths": {
-      "@/*": [
-        "./app/*"
-      ],
-      "static/*": [
-        "./public/static/*"
-      ]
-    }
+    // "paths": {
+    //   "@/*": [
+    //     "./src/*",
+    //     "./public/*"
+    //   ],
+    //   "static/*": [
+    //     "./public/static/*"
+    //   ]
+    // }
   },
   "include": [
-    "./index.js",
-    "tailwind.config.ts",
-    "server.tsx",
+    // "./index.js",
     "**/**/*.d.ts",
-    "app",
     "lib",
     "src",
+    "scripts",
     "**/**/*.mjs",
     "**/**/*.js",
     "**/**/*.json",
     "**/**/*.ts",
-    "nativewind-env.d.ts"
+    "**/**/*.tsx",
   ],
   "exclude": [
     ".watchmanconfig",
