@@ -15,7 +15,7 @@
 | &nbsp; |
 | <br /><p><br /><b>I am a system, mobile, and web developer and engineer; and, a musician</b> 🎼</p><br /> |
 | &nbsp; |
-| <div align="left"><details align="right" open><summary></summary><div align="center">[![StoneyDSP's GitHub stats](https://github-readme-stats-two-lime-18.vercel.app/api/top-langs/?username=nathanjhood\&langs_count=14\&show_icons=true\&layout=compact\&hide=TeX,html,css\&bg_color=00000000\&theme=default)](https://github.com/nathanjhood/github-readme-stats#gh-light-mode-only) [![StoneyDSP's GitHub stats](https://github-readme-stats-two-lime-18.vercel.app/api/top-langs/?username=nathanjhood\&langs_count=14\&show_icons=true\&layout=compact\&hide=TeX,html,css\&bg_color=00000000\&theme=dark)](https://github.com/nathanjhood/github-readme-stats#gh-dark-mode-only)</div></details></div> |
+| <div align="left"><details align="right" open><summary></summary><div align="center">[![StoneyDSP's GitHub stats](https://github-readme-stats-two-lime-18.vercel.app/api/top-langs/?username=nathanjhood\&langs_count=14\&show_icons=true\&layout=compact\&hide=TeX,html,css,scss\&bg_color=00000000\&theme=default)](https://github.com/nathanjhood/github-readme-stats#gh-light-mode-only) [![StoneyDSP's GitHub stats](https://github-readme-stats-two-lime-18.vercel.app/api/top-langs/?username=nathanjhood\&langs_count=14\&show_icons=true\&layout=compact\&hide=TeX,html,css,scss\&bg_color=00000000\&theme=dark)](https://github.com/nathanjhood/github-readme-stats#gh-dark-mode-only)</div></details></div> |
 | &nbsp; |
 | <br /><p align="center"><br /><b>I <i>love</i> open-source software.</b></p><br /> |
 | &nbsp; |
