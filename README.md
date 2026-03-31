@@ -15,6 +15,8 @@
 | &nbsp; |
 | <br /><p><br /><b>I am a software developer specialising in audio DSP, Smart TV, mobile, and native system applications, working professionally in the OTT VOD space; and, a musician by night!</b> 🎼</p><br /> |
 | &nbsp; |
+| <br /><p><br />No AI: <i>All</i> of the work you will find in my name is <i>entirely</i> my own; much of it verifiably pre-dates the arrival of the LLM, and all of it contains the kinds of choices, distinctions, and mistakes that only a human could make!</p><br /> |
+| &nbsp; |
 | <div align="left"><details align="right" open><summary></summary><div align="center">[![StoneyDSP's GitHub stats](https://github-readme-stats-two-lime-18.vercel.app/api/top-langs/?username=nathanjhood\&langs_count=14\&show_icons=true\&layout=compact\&hide=TeX,html,css,scss\&bg_color=00000000\&theme=default)](https://github.com/nathanjhood/github-readme-stats#gh-light-mode-only) [![StoneyDSP's GitHub stats](https://github-readme-stats-two-lime-18.vercel.app/api/top-langs/?username=nathanjhood\&langs_count=14\&show_icons=true\&layout=compact\&hide=TeX,html,css,scss\&bg_color=00000000\&theme=dark)](https://github.com/nathanjhood/github-readme-stats#gh-dark-mode-only)</div></details></div> |
 | &nbsp; |
 | <br /><p align="center"><br /><b>I <i>love</i> open-source software.</b></p><br /> |
